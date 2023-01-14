@@ -24,7 +24,12 @@ function Feed() {
         {
           feed.map((story) => {
             return (
-              <img src={story.thumbnail.desktop} />
+            <div>
+                  {story.title}
+                  <img src={story.thumbnail.desktop} />
+                  <p>{story.author.name}</p>
+                  <img src={story.author.avatar} />
+            </div>
             )
           })
         }
