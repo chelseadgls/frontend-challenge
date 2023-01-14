@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Feed from '../src/components/Feed/index';
+import Feed from '../src/components/Feed';
 
 export default function Home() {
   return (
