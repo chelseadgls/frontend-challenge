@@ -20,9 +20,14 @@ function Feed() {
   })
 
   return (
+  <div>
     <div className="grid gap-8 py-8">
       {feed.map(story => <Story story={story} />)}
-      </div>
+    </div>
+    <div>
+        <button>Load More</button>
+    </div>
+  </div>
   )
 }
 

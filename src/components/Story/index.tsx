@@ -1,6 +1,6 @@
 import React from "react";
 
-function Story({story}) {
+function Story({story} : {story: any}) {
   return (
     <div>
       <div className="flex border-2 border-gray-200 border-solid px-8 py-8">
