@@ -24,8 +24,8 @@ function Feed() {
     <div className="grid gap-8 py-8">
       {feed.map(story => <Story story={story} />)}
     </div>
-    <div>
-        <button>Load More</button>
+    <div className="flex justify-center">
+        <button className="bg-red-700 text-white mx-auto px-60 py-4">Load More</button>
     </div>
   </div>
   )
