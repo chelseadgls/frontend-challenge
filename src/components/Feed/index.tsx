@@ -14,7 +14,9 @@ function Feed() {
   useEffect(() => {
     try {
       fetchFeedData();
-      // console.log(feed);
+      const interval = setInterval(() => {
+        fetchFeedData()
+      },10000)
     } catch (error) {
       throw error;
     }
