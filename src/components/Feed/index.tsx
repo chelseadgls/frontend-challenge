@@ -1,6 +1,7 @@
 import Story from '../Story/index';
 import { useState, useEffect, useCallback } from 'react';
 import { getFeed } from '../../constants/index';
+import { updateFeed } from '../../constants/index';
 
 function Feed() {
   const [feed, setFeed] = useState([]);
@@ -12,11 +13,19 @@ function Feed() {
   useEffect(() => {
     try {
       fetchFeedData();
-      console.log(feed);
+      // console.log(feed);
     } catch (error) {
       throw error;
     }
-  })
+  }, []);
+
+  // call new data from update feed
+  // append to feed on click
+
+  async function useFeed() {
+    let newFeedData = await updateFeed();
+    setFeed(feed.concat(newFeedData));
+}
 
   return (
   <div>
@@ -24,14 +33,10 @@ function Feed() {
       {feed.map(story => <Story story={story} />)}
     </div>
     <div className="flex justify-center">
-        <button className="bg-red-700 text-white mx-auto px-60 py-4">Load More</button>
+        <button className="bg-red-700 text-white mx-auto px-60 py-4" onClick={(useFeed)}>Load More</button>
     </div>
   </div>
   )
-}
-
-const useFeed = () => {
-  
 }
 
 export default Feed

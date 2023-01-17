@@ -10,3 +10,12 @@ export const getFeed = async () => {
     throw error;
   }
 }
+
+export const updateFeed = async () => {
+  try {
+    const response = await axios.get('https://union-staging.barstoolsports.com/v2/stories/latest?page=2')
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
