@@ -5,6 +5,7 @@ import { updateFeed } from '../../constants/index';
 
 function Feed() {
   const [feed, setFeed] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   async function fetchFeedData() {
     setFeed(await getFeed());
@@ -19,21 +20,23 @@ function Feed() {
     }
   }, []);
 
-  // call new data from update feed
-  // append to feed on click
-
   async function useFeed() {
+    setLoading(true);
     let newFeedData = await updateFeed();
     setFeed(feed.concat(newFeedData));
+    setLoading(false);
 }
 
   return (
   <div>
     <div className="grid gap-8 py-8">
       {feed.map(story => <Story story={story} />)}
-    </div>
-    <div className="flex justify-center">
-        <button className="bg-red-700 text-white mx-auto px-60 py-4" onClick={(useFeed)}>Load More</button>
+      </div>
+      <div className="flex justify-center">
+      { !loading && <button className="bg-red-700 text-white mx-auto px-60 py-4" onClick={(useFeed)}>Load More</button>}
+        {loading && (
+        <button className="bg-gray-700 text-white mx-auto px-60 py-4">Loading...</button>
+      )}
     </div>
   </div>
   )
