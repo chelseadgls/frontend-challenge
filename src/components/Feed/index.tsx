@@ -1,7 +1,6 @@
 import Story from '../Story/index';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getFeed } from '../../constants/index';
-import Image from 'next/image';
 
 function Feed() {
   const [feed, setFeed] = useState([]);
@@ -29,6 +28,10 @@ function Feed() {
     </div>
   </div>
   )
+}
+
+const useFeed = () => {
+  
 }
 
 export default Feed
